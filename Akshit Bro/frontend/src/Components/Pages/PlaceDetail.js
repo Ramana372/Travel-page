@@ -95,18 +95,34 @@ const response = await API.get(`/places/${id}`, { signal });
     }
   };
 
-  useEffect(() => {
-    const controller = new AbortController();
-    if (!id || isNaN(parseInt(id))) {
-      setError("Invalid place ID.");
-      setIsLoading(false);
-      return;
-    }
-    window.scrollTo(0, 0);
-    fetchPlaceDetails(controller.signal);
+  // useEffect(() => {
+  //   const controller = new AbortController();
+  //   if (!id || isNaN(parseInt(id))) {
+  //     setError("Invalid place ID.");
+  //     setIsLoading(false);
+  //     return;
+  //   }
+  //   window.scrollTo(0, 0);
+  //   fetchPlaceDetails(controller.signal);
 
-    return () => controller.abort();
-  }, [id]);
+  //   return () => controller.abort();
+  // }, [id]);
+
+  useEffect(() => {
+  const controller = new AbortController();
+
+  if (id == null || isNaN(Number(id))) {
+    setError("Invalid place ID.");
+    setIsLoading(false);
+    return;
+  }
+
+  window.scrollTo(0, 0);
+  fetchPlaceDetails(controller.signal);
+
+  return () => controller.abort();
+}, [id]);
+
 
   useEffect(() => {
     const controller = new AbortController();

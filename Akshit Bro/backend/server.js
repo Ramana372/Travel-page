@@ -137,35 +137,6 @@ app.post("/register", async (req, res) => {
     }
 });
 
-// LOGIN
-// app.post("/login", async (req, res) => {
-//   const { email, password } = req.body;
-//   try {
-//     const [rows] = await promisePool.query("SELECT * FROM users WHERE email = ?", [email]);
-//     if (rows.length === 0) {
-//       return res.status(400).json({ success: false, message: "No account found with that email." });
-//     }
-
-//     const user = rows[0];
-//     const match = await bcrypt.compare(password, user.password);
-//     if (!match) {
-//       return res.status(400).json({ success: false, message: "Incorrect password." });
-//     }
-
-//     // ✅ include name + email in token
-//     const token = jwt.sign({ id: user.id, email: user.email }, JWT_SECRET, { expiresIn: "1h" });
-
-//     res.json({
-//       success: true,
-//       token,
-//       user: { id: user.id, name: user.name, email: user.email }, // ✅ send user info too
-//     });
-//   } catch (err) {
-//     console.error("Login error:", err);
-//     res.status(500).json({ success: false, message: "Server error. Please try again." });
-//   }
-// });
-
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
   try {

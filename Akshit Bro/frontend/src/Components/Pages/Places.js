@@ -83,14 +83,14 @@ const Places = () => {
 
   if (loading) {
     return (
-      <div className="places-page">
+      <div className="places-page container-fluid">
         <div className="loading">Loading places...</div>
       </div>
     );
   }
 
   return (
-    <div className="places-page">
+    <div className="places-page container-fluid">
       <div className="places-header">
         <h2 className="search-title">Explore Places</h2>
         <h2 className="popular-title">Popular Destinations</h2>

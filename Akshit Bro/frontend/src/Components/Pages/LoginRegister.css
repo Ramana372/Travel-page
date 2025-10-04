@@ -188,3 +188,23 @@
         font-size: 14px;
     }
 }
+
+/* Extra mobile specific tweaks */
+@media (max-width: 380px) {
+    .auth-box { padding: 16px; }
+    .auth-header h2 { font-size: 20px; }
+    .auth-form { gap: 16px; }
+    .form-group input { padding: 10px; font-size: 14px; }
+    .submit-button { padding: 12px; font-size: 15px; }
+}
+
+/* Medium screens */
+@media (max-width: 730px) {
+    .auth-container { padding: 40px 18px; }
+    .auth-box { padding: 28px; }
+}
+
+/* Large desktops */
+@media (min-width: 1280px) {
+    .auth-box { padding: 64px; max-width: 640px; }
+}

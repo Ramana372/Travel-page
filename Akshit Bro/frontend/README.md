@@ -68,3 +68,27 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Responsive testing (quick)
+
+When you're working on responsive layout changes locally, use these quick steps:
+
+- From the `frontend` folder install and start the dev server (Windows cmd.exe):
+
+  npm install
+  npm start
+
+- Open http://localhost:3000 in Chrome. Open DevTools (F12) then click the device toolbar (Ctrl+Shift+M) to simulate different screen sizes.
+
+- Recommended viewports to check:
+  - Mobile (iPhone X): 375 x 812
+  - Small tablet: 768 x 1024
+  - Desktop: 1366 x 768
+
+- Navigate to these pages and verify layout/overflow/spacing:
+  - / (Home)
+  - /places (Places listing)
+  - /places/:id (Place detail)
+  - /profile (User profile)
+
+If you find layout issues, send me a screenshot and the page name + viewport size and I'll iterate.

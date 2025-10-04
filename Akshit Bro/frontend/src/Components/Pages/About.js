@@ -7,7 +7,7 @@ const About = () => {
     }, []);
     
     return (
-        <div className="about-page">
+        <div className="about-page container-fluid">
             <div className="about-hero">
                 <div className="about-hero-content">
                     <h1>About Travel Guide</h1>

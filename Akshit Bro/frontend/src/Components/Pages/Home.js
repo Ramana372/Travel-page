@@ -449,7 +449,7 @@ function Home() {
 
   return (
     <div className='background'>
-      <div className="home">
+      <div className="home container-fluid">
         <div className='hero1'
           style={{
             backgroundImage: 'url("/Images/carousel-img2.jpg")',
@@ -463,18 +463,20 @@ function Home() {
             <h1>EXPLORE THE WORLD</h1>
             <p>Your adventure starts here.</p>
 
-            {/* ✅ Show profile info if user is logged in */}
             {user && (
-              <div className="profile">
-                Welcome, {user.name} 👋
-              </div>
-            )}
+  <div className="profile">
+    Welcome, {user.name} 👋
+    <button onClick={() => { localStorage.clear(); navigate("/login"); }}>
+      Logout
+    </button>
+  </div>
+)}
           </header>
         </div>
       </div>
 
       {/* Slider Section */}
-      <div className="place-slid-container">
+  <div className="place-slid-container container-fluid">
         <h2>Explore Places</h2>
         <div className="place-slider-container">
           <Slider {...settings}>
@@ -494,7 +496,7 @@ function Home() {
       </div>
 
       {/* Experts Section */}
-      <div className="Expert-container">
+  <div className="Expert-container container-fluid">
         <section className="team-section" id="Experts">
           <h2 className="team-heading">Meet Our Travel Experts</h2>
           <div className="team-container">
@@ -504,7 +506,7 @@ function Home() {
               <p className="team-member-role">Lead Traveler</p>
             </div>
             <div className="team-member">
-              <video src="/Images/video.mp4" autoPlay muted loop />
+              <video src="/videos/video.mp4" autoPlay muted loop />
               <p className="team-member-role">Akshit is a seasoned traveler with over 5 years of experience in exploring hidden gems around the world.</p>
               <button className='explore' onClick={handleExploreClick}>Explore more &gt;&gt; </button>
             </div>
@@ -513,7 +515,7 @@ function Home() {
       </div>
 
       {/* About Section */}
-      <div className="about-container">
+  <div className="about-container container-fluid">
         <section className="about-section" id="About">
           <h1 className="about-heading">About Us</h1>
           <p className="about-description">

@@ -210,8 +210,12 @@ const Navbar = () => {
     const fetchUser = async () => {
       try {
         const token = localStorage.getItem("token");
-        if (!token) return;
+        if (!token) {
+          console.debug("No token found - skipping profile fetch");
+          return;
+        }
 
+        console.debug("Fetching profile with token present");
         const res = await getProfile();
         setUser(res.data.user || res.data);
 

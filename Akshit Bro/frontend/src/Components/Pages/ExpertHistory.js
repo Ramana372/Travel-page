@@ -339,7 +339,7 @@ const ExpertHistory = () => {
   };
 
   return (
-    <div className="expert-history-container">
+    <div className="expert-history-container container-fluid">
       {/* Hero Section */}
       <section className="expert-hero">
         <div className="expert-hero-content">

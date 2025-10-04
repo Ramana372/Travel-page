@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import Navbar from './Components/Navbar';
 import Home from './Components/Pages/Home';
 import About from './Components/Pages/About';
@@ -10,23 +10,43 @@ import PlaceDetail from './Components/Pages/PlaceDetail';
 import Profile from './Components/Pages/Profile';
 import './App.css';
 
+// Root layout keeps Navbar persistent across routes
+const RootLayout = () => (
+  <div className="App">
+    <Navbar />
+    <main>
+      <Outlet />
+    </main>
+  </div>
+);
+
+const router = createBrowserRouter(
+  [
+    {
+      path: '/',
+      element: <RootLayout />,
+      children: [
+        // { index: true, element: <Home /> },
+        { path: '/', element: <Home /> },
+        { path: 'home', element: <Home /> },
+        { path: 'about', element: <About /> },
+        { path: 'places', element: <Places /> },
+        { path: 'places/:id', element: <PlaceDetail /> },
+        { path: 'expert', element: <ExpertHistory /> },
+        { path: 'login', element: <LoginRegister /> },
+        { path: 'profile', element: <Profile /> },
+      ],
+    },
+  ],
+ {
+    future: {
+      v7_startTransition: true,
+    },
+  }
+);
+
 function App() {
-  return (
-    <Router>
-      <div className="App">
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/places" element={<Places />} />
-          <Route path="/places/:id" element={<PlaceDetail />} />
-          <Route path="/expert" element={<ExpertHistory />} />
-          <Route path="/login" element={<LoginRegister />} />
-          <Route path="/profile" element={<Profile />} />
-        </Routes>
-      </div>
-    </Router>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

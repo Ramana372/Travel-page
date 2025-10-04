@@ -82,8 +82,8 @@
 .places-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 48px;
-  max-width: 1280px;
+  gap: 32px;
+  max-width: auto;
   margin: 0 auto;
   padding: 0;
 }
@@ -105,7 +105,7 @@
 .place-image-container {
   position: relative;
   width: 100%;
-  height: 240px;
+  height: 200px;
   overflow: hidden;
   border-radius: 0;
 }
@@ -123,22 +123,22 @@
 }
 
 .place-info {
-  padding: 28px;
+  padding: 18px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), white);
 }
 
 .place-name {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 600;
   color: #1e3a8a;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .place-description {
   color: #64748b;
-  font-size: 16px;
-  line-height: 1.6;
-  margin-bottom: 16px;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 12px;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -148,9 +148,9 @@
 .place-meta {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   color: #64748b;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .place-location {
@@ -180,9 +180,9 @@
   right: 12px;
   background: rgba(52, 152, 219, 0.9);
   color: white;
-  padding: 6px 12px;
-  border-radius: 15px;
-  font-size: 13px;
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 12px;
   text-transform: uppercase;
 }
 
@@ -222,7 +222,7 @@
   }
   .places-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
+    gap: 20px;
     max-width: 100%;
   }
 }
@@ -233,7 +233,7 @@
   }
   .places-grid {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 16px;
   }
   .search-title {
     font-size: 32px;
@@ -246,7 +246,7 @@
     font-size: 14px;
   }
   .place-image-container {
-    height: 200px;
+    height: 180px;
   }
 }
 
@@ -255,10 +255,10 @@
     margin: 0 8px;
   }
   .places-grid {
-    gap: 16px;
+    gap: 12px;
   }
   .place-image-container {
-    height: 180px;
+    height: 150px;
   }
   .category-filter {
     flex-direction: column;
@@ -268,4 +268,38 @@
     width: 100%;
     padding: 10px;
   }
+}
+
+@media (max-width: 380px) {
+  .places-page { margin: 0 6px; padding: 16px 0; }
+  .places-grid { gap: 12px; }
+  .place-image-container { height: 160px; }
+  .place-info { padding: 18px; }
+  .place-name { font-size: 18px; }
+}
+
+@media (max-width: 730px) {
+  .places-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .place-image-container { height: 170px; }
+}
+
+@media (min-width: 1280px) {
+  .places-grid {
+    max-width: 1080px;
+    max-height: 200px;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 35px;
+  }
+  .place-info {
+    padding: 24px;
+  }
+  .place-image-container {
+      height: 240px;
+  .place-name {
+      font-size: 20px;
+  }
+  .place-description {
+      font-size: 15px;
+  }
+}
 }

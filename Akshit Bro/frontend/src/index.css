@@ -63,6 +63,9 @@ img {
   padding: 0 20px;
 }
 
+/* import responsive utilities */
+@import './styles/responsive.css';
+
 /* Loading spinner */
 .loading-spinner {
   width: 40px;

@@ -1,12 +1,14 @@
 .navbar {
     background: #2c3e50;
-    height: 80px;
+    /* use min-height so it can grow on small devices */
+    min-height: 64px;
     display: flex;
     justify-content: center;
     align-items: center;
     position: sticky;
     top: 0;
     z-index: 999;
+    padding: 0.25rem 0;
 }
 
 .navbar-container {
@@ -14,18 +16,20 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    max-width: 1200px;
-    padding: 0 2rem;
+    max-width: var(--max-width, 1200px);
+    padding: 0 1rem;
     position: relative;
 }
 
 .navbar-logo {
     color: white;
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: bold;
     transition: color 0.3s ease;
 }
+
+.navbar-logo img { height: 40px; width: auto; display: inline-block; vertical-align: middle; }
 
 .navbar-logo:hover {
     color: #3498db;
@@ -52,7 +56,8 @@
     padding: 0.5rem 1rem;
     color: white;
     font-size: 0.9rem;
-    width: 200px;
+    width: min(40vw, 240px);
+    max-width: 100%;
     outline: none;
     transition: all 0.3s ease;
 }
@@ -60,7 +65,7 @@
 .search-input:focus {
     background: rgba(255, 255, 255, 0.2);
     box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
-    width: 250px;
+    width: min(48vw, 300px);
 }
 
 .search-input::placeholder {
@@ -305,6 +310,7 @@
     .search-container {
         width: 100%;
         margin: 0.5rem 0;
+        order: 3;
     }
 
     .search-input {

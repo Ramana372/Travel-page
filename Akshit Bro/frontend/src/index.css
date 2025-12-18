@@ -1,3 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Indian-themed fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Lora:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=Nunito:wght@300;400;600;700;800&display=swap');
+
+/* Indian Heritage Color Palette */
+:root {
+  /* Primary Colors - Incredible India Theme */
+  --saffron: #F28C28;
+  --deep-maroon: #7B2236;
+  --peacock-blue: #005F73;
+  --forest-green: #2A9D8F;
+  --ivory: #FFFDF8;
+  --gold: #D4A017;
+  --cream: #f8f7f4;
+  
+  /* Saffron-Maroon Gradient */
+  --gradient-saffron-maroon: linear-gradient(135deg, #F28C28 0%, #7B2236 100%);
+  
+  /* Premium Shadows */
+  --shadow-soft: 0 8px 24px rgba(123, 34, 54, 0.08);
+  --shadow-medium: 0 12px 32px rgba(123, 34, 54, 0.12);
+  --shadow-saffron: 0 8px 20px rgba(242, 140, 40, 0.3);
+}
+
 /* Font loading strategy */
 @font-face {
     font-family: 'System Font';
@@ -25,19 +52,115 @@
 }
 
 body {
-  font-family: 'System Font', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Inter', 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f8f9fa;
-  color: #333;
+  background-color: var(--ivory);
+  color: #2c2c2c;
   line-height: 1.6;
+  position: relative;
+}
+
+/* Global pattern overlay - Subtle Indian motifs at 3-7% opacity */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(242, 140, 40, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(123, 34, 54, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 40% 20%, rgba(0, 95, 115, 0.02) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+html {
+  background-color: var(--ivory);
+}
+
+/* Heading fonts - Playfair Display */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', 'Lora', serif;
+  font-weight: 700;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Utility classes for Indian theme */
+.heritage-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  color: var(--deep-maroon);
+  font-weight: 800;
+}
+
+.gold-border {
+  border-color: var(--gold);
+}
+
+.gold-text {
+  color: var(--gold);
+}
+
+.saffron-text {
+  color: var(--saffron);
+}
+
+.peacock-text {
+  color: var(--peacock-blue);
+}
+
+.forest-text {
+  color: var(--forest-green);
+}
+
+.maroon-text {
+  color: var(--deep-maroon);
+}
+
+/* Rounded corners standard */
+.rounded-heritage {
+  border-radius: 14px;
+}
+
+/* Soft shadow standard */
+.shadow-heritage {
+  box-shadow: 0 8px 24px rgba(123, 34, 54, 0.08);
+}
+
+.shadow-heritage-lg {
+  box-shadow: 0 12px 32px rgba(123, 34, 54, 0.12);
+}
+
+/* Pattern backgrounds */
+.pattern-mandala {
+  background-image: radial-gradient(circle at 50% 50%, transparent 20%, rgba(212, 160, 23, 0.05) 21%, rgba(212, 160, 23, 0.05) 40%, transparent 41%, transparent);
+  background-size: 40px 40px;
+  background-position: 0 0;
+}
+
+.pattern-temple {
+  background-image: 
+    linear-gradient(45deg, rgba(242, 140, 40, 0.04) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(242, 140, 40, 0.04) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(242, 140, 40, 0.04) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(242, 140, 40, 0.04) 75%);
+  background-size: 30px 30px;
+  background-position: 0 0, 0 15px, 15px -15px, -15px 0;
+}
+
+.pattern-paisley {
+  background-image: radial-gradient(circle at 30% 30%, transparent 30%, rgba(0, 95, 115, 0.04) 31%),
+                    radial-gradient(circle at 70% 70%, transparent 30%, rgba(212, 160, 23, 0.04) 31%);
+  background-size: 50px 50px;
 }
 
 /* Global styles */
@@ -62,9 +185,6 @@ img {
   margin: 0 auto;
   padding: 0 20px;
 }
-
-/* import responsive utilities */
-@import './styles/responsive.css';
 
 /* Loading spinner */
 .loading-spinner {
@@ -149,4 +269,239 @@ img {
   .container {
     padding: 0 15px;
   }
+}
+
+/* ==========================================
+   CSS VARIABLES & UTILITIES 
+   ========================================== */
+
+:root {
+  /* Colors */
+  --cream-bg: #f8f7f4;
+  --white: #ffffff;
+  --dark-text: #2c2c2c;
+  --dark-gray: #4a4a4a;
+  --accent-brown: #8b7355;
+  --accent-brown-dark: #7c7562;
+  --light-gray: #e0dfd9;
+  --medium-gray: #999;
+  --border-light: rgba(124, 117, 98, 0.2);
+  
+  /* Typography */
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-2xl: 4rem;
+  
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 50%;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.15);
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* Scroll to Top Button */
+.scroll-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 50px;
+  height: 50px;
+  background: var(--accent-brown);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-full);
+  font-size: 1.5rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-md);
+  z-index: 200;
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-to-top:hover {
+  background: var(--dark-text);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Improved Focus States for Accessibility */
+*:focus-visible {
+  outline: 2px solid var(--accent-brown);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--accent-brown);
+  outline-offset: 3px;
+}
+
+/* Better Selection Highlighting */
+::selection {
+  background: var(--accent-brown);
+  color: var(--white);
+}
+
+::-moz-selection {
+  background: var(--accent-brown);
+  color: var(--white);
+}
+
+/* ==========================================
+   INCREDIBLE INDIA THEME STYLES
+   ========================================== */
+
+/* Hero Section - Saffron-Maroon Gradient Overlay */
+.hero-gradient-overlay {
+  background: linear-gradient(135deg, rgba(242, 140, 40, 0.45) 0%, rgba(123, 34, 54, 0.50) 50%, rgba(44, 20, 25, 0.60) 100%);
+}
+
+/* Gold Underline for Headlines */
+.gold-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.gold-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(to right, #D4A017, #F28C28);
+  animation: slideRight 1s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes slideRight {
+  to {
+    width: 100%;
+  }
+}
+
+/* Saffron CTA Button Styles */
+.btn-saffron {
+  background-color: #F28C28;
+  color: white;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(242, 140, 40, 0.3);
+  cursor: pointer;
+}
+
+.btn-saffron:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(242, 140, 40, 0.4);
+}
+
+.btn-saffron:active {
+  transform: translateY(-2px);
+}
+
+/* Premium Card with Gold Border */
+.card-premium-india {
+  background-color: #FFFDF8;
+  border: 2px solid #D4A017;
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 8px 24px rgba(123, 34, 54, 0.08);
+  transition: all 0.4s ease;
+}
+
+.card-premium-india:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 16px 48px rgba(123, 34, 54, 0.15);
+}
+
+/* Trending Spots Card */
+.trending-spot-card {
+  background-color: #FFFDF8;
+  border: 2px solid #D4A017;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(123, 34, 54, 0.08);
+  transition: all 0.4s ease;
+}
+
+.trending-spot-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 16px 48px rgba(123, 34, 54, 0.15);
+}
+
+/* Saffron Badge */
+.badge-saffron {
+  background-color: #F28C28;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.85rem;
+  box-shadow: 0 4px 12px rgba(242, 140, 40, 0.3);
+}
+
+/* Indian Motif Patterns */
+.motif-mandala {
+  background-image: 
+    radial-gradient(circle at 30% 30%, transparent 30%, rgba(212, 160, 23, 0.05) 31%),
+    radial-gradient(circle at 70% 70%, transparent 30%, rgba(242, 140, 40, 0.05) 31%);
+  background-size: 80px 80px;
+}
+
+/* Serif Typography - Playfair Display */
+.heading-serif {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+}
+
+/* Premium Layout Spacing */
+.spacing-premium {
+  padding: 64px 32px;
+}
+
+@media (max-width: 768px) {
+  .spacing-premium {
+    padding: 48px 20px;
+  }
+}
+
+/* Soft Shadow Styles */
+.shadow-soft-india {
+  box-shadow: 0 8px 24px rgba(123, 34, 54, 0.08);
+}
+
+.shadow-soft-india-lg {
+  box-shadow: 0 12px 32px rgba(123, 34, 54, 0.12);
+}
+
+.shadow-saffron {
+  box-shadow: 0 8px 20px rgba(242, 140, 40, 0.3);
 }
